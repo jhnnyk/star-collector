@@ -14,15 +14,16 @@
       h1 {
         text-align: center;
       }
+      #high-scores {
+        float: left;
+      }
     </style>
   </head>
   <body>
     <div class="container">
       <h1>StarCollector</h1>
     </div>
-    <div id="high-scores">
-      <h3>High Scores</h3>
-    </div>
+    <div id="high-scores"></div>
     <script type="text/javascript">
       var config = {
         type: Phaser.AUTO,
@@ -164,8 +165,6 @@
           fill: "#000"
         });
 
-        showHighScores();
-
         this.physics.add.collider(player, platforms);
         this.physics.add.collider(stars, platforms);
         this.physics.add.collider(bombs, platforms);
@@ -192,12 +191,12 @@
         }
 
         if (gameOver) {
-          this.add.text(350, 250, "Game Over\nclick to restart", {
+          this.add.text(350, 250, "Game Over\nRestart? y/n", {
             fontSize: "32px",
             fill: "#000"
           });
 
-          this.input.on("pointerdown", () => {
+          this.input.keyboard.on("keydown_Y", () => {
             score = 0;
             gameOver = false;
             this.scene.restart();
@@ -237,6 +236,7 @@
 
       function showHighScores() {
         let hs = document.getElementById("high-scores");
+        hs.innerHTML += "<h3>High Scores</h3>";
         hs.innerHTML += "<ul>";
         highScores.forEach(result => {
           hs.innerHTML += `<li>${result.name}: ${result.score}</li>`;
