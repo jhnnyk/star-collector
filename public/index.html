@@ -23,7 +23,7 @@
     <div class="container">
       <h1>StarCollector</h1>
     </div>
-    <div id="high-scores"></div>
+
     <script type="text/javascript">
       var config = {
         type: Phaser.AUTO,
@@ -51,48 +51,6 @@
       var score = 0;
       var gameOver = false;
       var scoreText;
-      var highScores = [
-        {
-          name: "AAA",
-          score: 10
-        },
-        {
-          name: "BBB",
-          score: 10
-        },
-        {
-          name: "CCC",
-          score: 20
-        },
-        {
-          name: "DDD",
-          score: 20
-        },
-        {
-          name: "DED",
-          score: 30
-        },
-        {
-          name: "AAA",
-          score: 10
-        },
-        {
-          name: "BBB",
-          score: 10
-        },
-        {
-          name: "CCC",
-          score: 20
-        },
-        {
-          name: "DDD",
-          score: 20
-        },
-        {
-          name: "DED",
-          score: 30
-        }
-      ];
 
       var game = new Phaser.Game(config);
 
@@ -232,16 +190,6 @@
         player.setTint(0xff0000);
         player.anims.play("turn");
         gameOver = true;
-      }
-
-      function showHighScores() {
-        let hs = document.getElementById("high-scores");
-        hs.innerHTML += "<h3>High Scores</h3>";
-        hs.innerHTML += "<ul>";
-        highScores.forEach(result => {
-          hs.innerHTML += `<li>${result.name}: ${result.score}</li>`;
-        });
-        hs.innerHTML += "</ul>";
       }
     </script>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
