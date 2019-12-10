@@ -20,6 +20,9 @@
     <div class="container">
       <h1>StarCollector</h1>
     </div>
+    <div id="high-scores">
+      <h3>High Scores</h3>
+    </div>
     <script type="text/javascript">
       var config = {
         type: Phaser.AUTO,
@@ -161,6 +164,8 @@
           fill: "#000"
         });
 
+        showHighScores();
+
         this.physics.add.collider(player, platforms);
         this.physics.add.collider(stars, platforms);
         this.physics.add.collider(bombs, platforms);
@@ -231,9 +236,12 @@
       }
 
       function showHighScores() {
+        let hs = document.getElementById("high-scores");
+        hs.innerHTML += "<ul>";
         highScores.forEach(result => {
-          result;
+          hs.innerHTML += `<li>${result.name}: ${result.score}</li>`;
         });
+        hs.innerHTML += "</ul>";
       }
     </script>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
