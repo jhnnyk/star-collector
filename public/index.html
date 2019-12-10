@@ -2,15 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Phaser 3 Demo Game</title>
+    <title>StarCollector</title>
     <script src="//cdn.jsdelivr.net/npm/phaser@3.11.0/dist/phaser.js"></script>
     <style type="text/css">
       body {
         margin: 0;
       }
+      .container {
+        width: 800px;
+      }
+      h1 {
+        text-align: center;
+      }
     </style>
   </head>
   <body>
+    <div class="container">
+      <h1>StarCollector</h1>
+    </div>
     <script type="text/javascript">
       var config = {
         type: Phaser.AUTO,
@@ -38,6 +47,48 @@
       var score = 0;
       var gameOver = false;
       var scoreText;
+      var highScores = [
+        {
+          name: "AAA",
+          score: 10
+        },
+        {
+          name: "BBB",
+          score: 10
+        },
+        {
+          name: "CCC",
+          score: 20
+        },
+        {
+          name: "DDD",
+          score: 20
+        },
+        {
+          name: "DED",
+          score: 30
+        },
+        {
+          name: "AAA",
+          score: 10
+        },
+        {
+          name: "BBB",
+          score: 10
+        },
+        {
+          name: "CCC",
+          score: 20
+        },
+        {
+          name: "DDD",
+          score: 20
+        },
+        {
+          name: "DED",
+          score: 30
+        }
+      ];
 
       var game = new Phaser.Game(config);
 
@@ -177,6 +228,12 @@
         player.setTint(0xff0000);
         player.anims.play("turn");
         gameOver = true;
+      }
+
+      function showHighScores() {
+        highScores.forEach(result => {
+          result;
+        });
       }
     </script>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
